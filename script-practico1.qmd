@@ -7,7 +7,7 @@ bibliography: practico1-opt.bib
 link-citations: true
 ---
 
-# Participación laboral femenina y desigualdad en la distribución del trabajo doméstico no remunerado en Chile
+## Participación laboral femenina y desigualdad en la distribución del trabajo doméstico no remunerado en Chile
 
 ## Introduction
 
@@ -23,4 +23,83 @@ Complementariamente, Julieta Palma (2021) analiza cómo el retiro del Estado en 
 
 Siguiendo con lo anterior y en coherencia con lo desarrollado hasta aquí, resulta necesario operacionalizar estos conceptos para su análisis empírico. La investigación utiliza datos de la Encuesta Nacional sobre Uso del Tiempo (ENUT 2023), la cual permite medir la distribución de actividades domésticas, laborales y de cuidado. Esta base de datos es pertinente dado que recoge información específica sobre uso del tiempo, condiciones laborales, presencia de personas dependientes y carga percibida, lo que facilita la aplicación de modelos multivariados orientados a identificar patrones y estructuras subyacentes. En particular, el análisis considera como variable dependiente el tiempo dedicado al trabajo doméstico y de cuidado no remunerado. Entre las variables independientes se incluyen la presencia de personas dependientes en el hogar, nivel educativo, edad, ciclo vital, nivel socioeconómico, jornada laboral y condición de jefatura de hogar. La elección de estas variables, nos permitirán explorar cómo distintas posiciones sociales y condiciones familiares inciden en la distribución del tiempo doméstico entre mujeres con participación laboral activa.
 
-## 
+
+### Cargar paquetes
+```{r}
+pacman::p_load(tidyverse,
+               sjPlot,
+               sjmisc,
+               sjlabelled,
+               psych,
+               DescTools,
+               ggplot2,
+               broom,
+               rempsyc,
+               FactoMineR,
+               factoextra)
+
+install.packages("ggplot2")
+install.packages("ggrepel")
+install.packages("purrr")
+install.packages("ggplotify")
+install.packages("factoextra")
+
+library(ggplot2)
+library(ggrepel)
+library(purrr)
+library(ggplotify)
+library(factoextra)
+library(tidyverse)
+
+
+
+options(scipen = 999) 
+rm(list = ls())       
+
+```
+
+### Establecemos directorio
+```{r}
+setwd ("C:/Users/felip/Desktop/OPT R/ejercicio1-opt")
+```
+
+
+### Cargamos base de datos 
+```{r}
+base_enut <- readRDS("C:/Users/felip/Desktop/OPT R/ENUT_2023.RDS")
+
+View(base_enut)
+```
+
+### Reemplazar códigos de no respuesta por NA
+```{r}
+NA_codes <- c("85","88","96","99", 85,88,96,99)
+
+acm_data <- acm_data %>%
+  mutate(across(everything(), ~ haven::as_factor(., levels = "values"))) %>%
+  mutate(across(everything(), ~ as.numeric(as.character(.)))) %>%
+  mutate(across(everything(), ~ ifelse(. %in% NA_codes, NA, .)))
+
+#Eliminar NA
+
+acm_data_clean <- acm_data %>% drop_na()
+
+#Convertir a factor
+acm_data_clean <- acm_data_clean %>%
+  mutate(across(everything(), factor))
+
+#Frecuencias
+sjmisc::frq(acm_data_clean$CD10)
+sjmisc::frq(acm_data_clean$TC1)
+sjmisc::frq(acm_data_clean$TO6)
+sjmisc::frq(acm_data_clean$BS10)
+sjmisc::frq(acm_data_clean$BS17)
+
+library(FactoMineR)
+library(factoextra)
+```
+
+
+
+
+

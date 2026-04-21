@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Felipe Garrido">
+
+<title>Practico1- OPT</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="practico1-R_files/libs/clipboard/clipboard.min.js"></script>
+<script src="practico1-R_files/libs/quarto-html/quarto.js"></script>
+<script src="practico1-R_files/libs/quarto-html/popper.min.js"></script>
+<script src="practico1-R_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="practico1-R_files/libs/quarto-html/anchor.min.js"></script>
+<link href="practico1-R_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="practico1-R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="practico1-R_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="practico1-R_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="practico1-R_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Practico1- OPT</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felipe Garrido </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="participación-laboral-femenina-y-desigualdad-en-la-distribución-del-trabajo-doméstico-no-remunerado-en-chile" class="level1">
+<h1>Participación laboral femenina y desigualdad en la distribución del trabajo doméstico no remunerado en Chile</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Durante las últimas décadas, el mercado laboral chileno ha experimentado transformaciones significativas que han tensionado la estructura cultural del trabajo doméstico no remunerado y, junto con ello, las relaciones de género al interior del hogar y la institución familiar. El aumento sostenido de la participación femenina en el empleo remunerado no ha sido acompañado por una redistribución equitativa de las tareas domésticas y de cuidados, en donde, a pesar de los avances en integración laboral y educativa de las mujeres, diversas investigaciones muestran que ellas continúan asumiendo de manera mayoritaria la responsabilidad del trabajo doméstico no remunerado, fenómeno que se intensifica cuando mantienen simultáneamente una jornada laboral activa, lo que evidencia una persistencia de patrones culturales tradicionales que organizan la vida doméstica, generando una sobrecarga estructural y una doble presencia entre el ámbito productivo y reproductivo. Este fenómeno ha sido ampliamente discutido en la literatura a través del concepto de “segunda jornada” <span class="citation" data-cites="hochschild1989">(<a href="#ref-hochschild1989" role="doc-biblioref">Hochschild and Machung 1989</a>)</span><strong>,</strong> donde se muestra que, aun cuando las mujeres se integran al mercado laboral, continúan asumiendo de forma predominante las responsabilidades domésticas y de cuidado al interior del hogar. De este modo, la incorporación femenina al trabajo remunerado no implica necesariamente una redistribución de las tareas domésticas, sino que con frecuencia se traduce en una ampliación de la carga total de trabajo que enfrentan las mujeres, llamado “superwoman”, una mujer que intenta cumplir con su rol profesional, doméstico y maternal <strong>[**Friedan en <span class="citation" data-cites="amorós2021">Amorós (<a href="#ref-amorós2021" role="doc-biblioref">2021</a>)</span>]</strong>.** Esto se evidencia en las investigaciones recientes. Silvia Órdenes (2025) señala que, incluso cuando las mujeres logran mayores niveles de integración laboral o educativa, esto no se traduce necesariamente en una disminución del tiempo dedicado al trabajo doméstico no remunerado <span class="citation" data-cites="ordenes2025">(<a href="#ref-ordenes2025" role="doc-biblioref">Ordenes 2025</a>)</span><strong>.</strong> En este escenario emerge un problema relevante, y es preguntarnos por la persistencia de una distribucion desigual del trabajo domestico y de cuidado, incluso entre mujeres que participan activamente en el mercado laboral, lo que evidencia tensiones entre los cambios en la esfera productiva y la continuidad de estructuras culturales que organizan la vida doméstica.</p>
+<p>En este contexto, el objetivo general del estudio es analizar cómo se distribuye el trabajo doméstico y de cuidado no remunerado entre mujeres activas laboralmente en Chile, considerando dimensiones sociodemográficas, laborales y familiares. Para ello, se utilizará la base de datos ENUT para explorar asociaciones entre categorías, condiciones laborales y patrones de uso del tiempo. Como plantea la literatura, la presencia de personas dependientes en el hogar tiende a intensificar la carga doméstica en mujeres con participación laboral activa. Además, quienes se encuentran en etapas tempranas o avanzadas de ciclo vital exigen mayores niveles de cuidado, intensificando la carga para las mujeres activas laboralmente. Bajo este marco, planteamos la siguiente pregunta: ¿Cómo se distribuye el trabajo doméstico y de cuidado no remunerado entre mujeres activas laboralmente en Chile, y qué patrones de desigualdad se observan según sus condiciones sociodemográficas y laborales? En este contexto surge un problema sociológico central, la persistencia de una distribucion desigual del trabajo domestico y de cuidado, incluso entre mujeres que participan activamente en el mercado laboral.</p>
+<p>El análisis de la distribución del trabajo doméstico no remunerado entre mujeres activas laboralmente se sostiene sobre los conceptos de cuidado, división sexual del trabajo y corresponsabilidad doméstica, los cuales se vinculan al debate sobre desigualdad de género, reproducción social y estructura cultural del hogar. En este sentido, se reconoce que el avance en integración educativa y laboral de las mujeres no ha implicado necesariamente un cambio equivalente en la organización doméstica. Los estudios demuestran cómo, aun incluso en contextos de mayor autonomía económica y capital educativo, las mujeres continúan asumiendo la mayor parte de las tareas domésticas y de cuidado, especialmente cuando conviven con hijos pequeños u otras personas dependientes <span class="citation" data-cites="ordenes2025">(<a href="#ref-ordenes2025" role="doc-biblioref">Ordenes 2025</a>)</span>. Esto evidencia la persistencia patrones culturales que estructuran el hogar bajo lógicas tradicionales de carácter patriarcal, donde la maternidad y la feminización del cuidado se mantienen como componentes centrales de la organización familiar. Desde una perspectiva interseccional, estudios recientes advierten que esta desigualdad se intensifica según las condiciones socioeconómicas, ciclo vital y pertenencia étnica, configurando formas de sobrecarga múltiple en el uso del tiempo <span class="citation" data-cites="ordenes2025">(<a href="#ref-ordenes2025" role="doc-biblioref">Ordenes 2025</a>)</span>. Esta realidad encuentra respaldo empírico en los resultados de la Segunda Encuesta Nacional sobre Uso del Tiempo (INE, 2023), que revela que las mujeres dedican más del doble de horas que los hombres al trabajo doméstico y de cuidados no remunerados, pese a su creciente inserción laboral <span class="citation" data-cites="allendes">(<a href="#ref-allendes" role="doc-biblioref">Allendes et al., n.d.</a>)</span>.</p>
+<p>Otros autores, señalan que esto no puede ser entendido como una actividad privada ni meramente afectiva, sino como una práctica estructural que sostiene la reproducción de la vida. Desde este enfoque, la dependencia y vulnerabilidad humana no representan una limitación, sino la base de interrelaciones sociales que permiten la autonomía individual <span class="citation" data-cites="sembler2023">(<a href="#ref-sembler2023" role="doc-biblioref">Sembler 2023</a>)</span>. Esto nos permite comprender cómo la asignación desproporcionada de responsabilidades domésticas a las mujeres constituye no solo una desigualdad material, sino también una experiencia de menosprecio y falta de reconocimiento, en la medida en que este trabajo permanece invisibilizado y excluido de los marcos normativos de justicia y participación democrática. Mantener esta mirada es clave para este estudio, ya que permite leer la sobrecarga doméstica como expresión de inequidad estructural y no como resultado de decisiones individuales, rompiendo con la hipótesis de que quien percibe mayor ingreso dentro del hogar realiza menos trabajos domésticos y de cuidado. Estas tensiones se manifiestan especialmente en prácticas laborales consideradas “atípicas” —como mujeres en ocupaciones masculinizadas y hombres en rubros feminizados— que reconfiguran las expectativas sobre género, cuestionando simbólicamente quién cuida y quién provee dentro del hogar <span class="citation" data-cites="saldañamuñoz2018">(<a href="#ref-saldañamuñoz2018" role="doc-biblioref">Saldaña Muñoz 2018</a>)</span>.</p>
+<p>Complementariamente, Julieta Palma (2021) analiza cómo el retiro del Estado en materia de bienestar, profundizado desde la instauración del modelo neoliberal en Chile, ha trasladado las responsabilidades de sostenimiento cotidiano hacia los hogares, reforzando la centralidad del trabajo doméstico y de cuidado. Durante situaciones de crisis —como la pandemia del COVID-19—, las mujeres, especialmente jefas de hogar, debieron intensificar tanto las estrategias de generación de ingresos como las labores domésticas, evidenciando que la carga emocional, económica y reproductiva recae sobre ellas de manera estructural <span class="citation" data-cites="palma2021">(<a href="#ref-palma2021" role="doc-biblioref">Palma and Araos 2021</a>)</span>. Para la autora, aun cuando existen instancias de reorganización familiar, estas no siempre se traducen en una distribución equitativa del trabajo, consolidando una tensión entre discursos de igualdad y prácticas cotidianas que continúan sustentando el modelo de género tradicional.</p>
+<p>Siguiendo con lo anterior y en coherencia con lo desarrollado hasta aquí, resulta necesario operacionalizar estos conceptos para su análisis empírico. La investigación utiliza datos de la Encuesta Nacional sobre Uso del Tiempo (ENUT 2023), la cual permite medir la distribución de actividades domésticas, laborales y de cuidado. Esta base de datos es pertinente dado que recoge información específica sobre uso del tiempo, condiciones laborales, presencia de personas dependientes y carga percibida, lo que facilita la aplicación de modelos multivariados orientados a identificar patrones y estructuras subyacentes. En particular, el análisis considera como variable dependiente el tiempo dedicado al trabajo doméstico y de cuidado no remunerado. Entre las variables independientes se incluyen la presencia de personas dependientes en el hogar, nivel educativo, edad, ciclo vital, nivel socioeconómico, jornada laboral y condición de jefatura de hogar. La elección de estas variables, nos permitirán explorar cómo distintas posiciones sociales y condiciones familiares inciden en la distribución del tiempo doméstico entre mujeres con participación laboral activa.</p>
+</section>
+<section id="section" class="level2 unnumbered">
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-allendes" class="csl-entry" role="listitem">
+Allendes, Leonardo González, David Niculcar Castillo, Carla Arellano Mendoza, Agustín Arce Garcés, Verónica Valdivia Medina, Joaquín Galdames Hernández, Paula Herrera Domínguez, Juan León Gaete, Santiago Ortúzar Lyon, and Martín Venegas Márquez. n.d. <span>“INFORME DE PRINCIPALES RESULTADOS II ENCUESTA NACIONAL SOBRE USO DEL TIEMPO.”</span>
+</div>
+<div id="ref-amorós2021" class="csl-entry" role="listitem">
+Amorós, Celia. 2021. <em>Teoría Feminista 2</em>. Estudios Sobre la Mujer Ser v.2. Barcelona: Biblioteca Nueva, Editorial.
+</div>
+<div id="ref-hochschild1989" class="csl-entry" role="listitem">
+Hochschild, Arlie Russell, and Anne Machung. 1989. <em>The Second Shift: Working Parents and the Revolution at Home</em>. New York, N.Y: Viking.
+</div>
+<div id="ref-ordenes2025" class="csl-entry" role="listitem">
+Ordenes, Silvia Karina. 2025. <span>“¿Qué Características Tienen Las Mujeres Que Realizan Menos Horas de Trabajo No Remunerado Dentro Del Hogar?”</span> <em>Revista de Sociología</em> 40 (1). <a href="https://doi.org/10.5354/0719-529X.2025.79648">https://doi.org/10.5354/0719-529X.2025.79648</a>.
+</div>
+<div id="ref-palma2021" class="csl-entry" role="listitem">
+Palma, Julieta, and Consuelo Araos. 2021. <span>“Household Coping Strategies During the COVID-19 Pandemic in Chile.”</span> <em>Frontiers in Sociology</em> 6 (August): 728095. <a href="https://doi.org/10.3389/fsoc.2021.728095">https://doi.org/10.3389/fsoc.2021.728095</a>.
+</div>
+<div id="ref-saldañamuñoz2018" class="csl-entry" role="listitem">
+Saldaña Muñoz, Lucía. 2018. <span>“Relaciones de Género y Arreglos Domésticos: Masculinidades Cambiantes En Concepción, Chile.”</span> <em>Polis (Santiago)</em> 17 (50): 183–204. <a href="https://doi.org/10.4067/S0718-65682018000200183">https://doi.org/10.4067/S0718-65682018000200183</a>.
+</div>
+<div id="ref-sembler2023" class="csl-entry" role="listitem">
+Sembler, Camilo. 2023. <span>“Familia, Autoridad y Democracia: Un Legado de La Teoría Crítica.”</span> <em>Revista de Sociología</em> 38 (1): 38–51. <a href="https://doi.org/10.5354/0719-529X.2023.71232">https://doi.org/10.5354/0719-529X.2023.71232</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
